@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form class="needs-validation" method=post action="{{ url_for('index') }}" enctype=multipart/form-data novalidate
+  style="flex-grow: 100;">
+  <div class="card col-12" style="margin-bottom:1rem;">
+    <div class="card-body">
+      <h5 class="card-title">Use RNAsamba online</h5>
+      <p class="card-text">Upload a FASTA file containing transcript sequences (<a class="text-primary"
+          href="{{ url_for('static', filename='example.fasta') }}">example</a>). We allow the following file extensions:
+        <code>fasta</code>, <code>fa</code> and <code>fna</code>. After submitting your data, you will be redirected to
+        a page where you can view and download your results as soon as they are ready.</p>
+    </div>
+    <!-- File selection + Button -->
+    <div class="form-group row files card-body mt-0 pt-0 mb-0 pb-3">
+      <!-- File selection -->
+      <div class="col-9">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="file_id" name="file" required>
+          <label class="custom-file-label" for="file_id">Choose a FASTA file (Max.: 50 MB)</label>
+          <div class="invalid-feedback">
+            Please select a file.
+          </div>
+        </div>
+      </div>
+      <!-- Button -->
+      <div class="col-3">
+        <button type="submit" value=Upload class="btn btn-primary btn-block">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
+<!-- Installation card -->
+<div class="card col-12" style="margin-bottom:1rem">
+  <div class="card-body">
+    <h5 class="card-title">Use RNAsamba locally</h5>
+    <p class="card-text">RNAsamba is available as a package for local installation. It provides a command-line
+      which includes a command for training new models and additional options for classification. Check our
+      <a class="text-primary" href="https://apcamargo.github.io/RNAsamba/">documentation</a> for details on how to
+      install and use RNAsamba.</p>
+  </div>
+</div>
+<!-- Citation card -->
+<div class="card bg-light col-12" style="margin-bottom:1rem">
+  <div class="card-body">
+    <h5 class="card-title">Cite RNAsamba</h5>
+    <p class="card-text" style="margin: 0px;">"RNAsamba: coding potential assessment using ORF and whole transcript
+      sequence information".</p>
+    <p class="card-text text-muted">Antonio P. Camargo, Vsevolod Sourkov, Marcelo F. Carazzolle &ndash; <em>BioRxiv</em> (2019).</p>
+    <a class="btn btn-outline-primary btn-sm mr-2" role="button"
+      href="https://www.biorxiv.org/content/10.1101/620880v1.abstract/">Go to article</a>
+  </div>
+</div>
+
+{% endblock content %}

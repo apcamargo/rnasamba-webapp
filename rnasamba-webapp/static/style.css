@@ -1,0 +1,66 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 5rem; /* Margin bottom by footer height */
+  font-family: 'Lato', sans-serif;
+}
+
+div.container {
+  max-width: 60rem;
+  min-width: 48rem;
+  padding: 0rem 5rem 1.5rem 5rem;
+}
+
+div.dataTables_scrollHead {
+  margin-top: 0.2rem
+}
+
+div.dataTables_scrollBody {
+  margin-bottom: 1rem
+}
+
+table, th, td {
+  width: 100%;
+}
+
+h5.card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5rem; /* Set the fixed height of the footer here */
+  line-height: 5rem; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+.custom-file-label {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Labeled buttons */
+
+.btn-label {
+  position: relative;
+  left: -12px;
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(0,0,0,0.15);
+}
+
+.btn-labeled {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.btn {
+  margin-bottom: 10px;
+  white-space: nowrap;
+}

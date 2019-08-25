@@ -1,0 +1,61 @@
+version: "3"
+
+services:
+  webapp:
+    build:
+      context: rnasamba-webapp
+      dockerfile: Dockerfile
+    environment:
+      # Set the Flask secret key
+      - FLASK_SECRET_KEY=super_secret_key
+      - GUNICORN_CMD_ARGS=--workers=4 --timeout=120
+    ports:
+      - "80:5001"
+    volumes:
+      - uploads-volume:/rnasamba-app/uploads
+    restart: always
+    depends_on:
+      - worker
+  cleanup:
+    build:
+      context: volume-cleanup
+      dockerfile: Dockerfile
+    volumes:
+      - uploads-volume:/rnasamba-app/uploads
+    restart: always
+    depends_on:
+      - webapp
+  monitor:
+    build:
+      context: celery-queue
+      dockerfile: Dockerfile
+    environment:
+      # Flower configuration
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - FLOWER_PORT=5555
+      - FLOWER_BASIC_AUTH=user:password
+    ports:
+      - "5555:5555"
+    entrypoint: flower
+    command: -A tasks
+    restart: always
+    depends_on:
+      - worker
+  worker:
+    build:
+      context: celery-queue
+      dockerfile: Dockerfile
+    volumes:
+      - uploads-volume:/rnasamba-app/uploads
+    restart: always
+    depends_on:
+      - redis
+  redis:
+    image: redis:5.0-alpine
+    volumes:
+      - redis-volume:/data
+    restart: always
+
+volumes:
+  uploads-volume:
+  redis-volume:

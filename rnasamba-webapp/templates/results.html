@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+
+        <!-- Results link card -->
+        <div class="card col-12" style="margin-bottom:1rem">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-9">
+                        <h5 class="card-title">View and download your results</h5>
+                    </div>
+                    <div class="col-3">
+                        <a class="btn btn-primary btn-block" role="button"
+                            href="{{ url_for('uploaded_file', output_file=output_file) }}">Download</a>
+                    </div>
+                </div>
+                <p class="card-text">{{ dataframe_html | safe }}</p>
+            </div>
+        </div>
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
+        <script src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+
+        <script>
+          $.fn.DataTable.ext.pager.numbers_length = 5;
+          $(document).ready(function() {
+            $('#dataframe-id').DataTable({
+              "order": [],
+              "scrollX": true
+            });
+          })
+        </script>
+
+{% endblock content %}
