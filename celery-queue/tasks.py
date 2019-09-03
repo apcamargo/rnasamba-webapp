@@ -16,3 +16,4 @@ def start_rnasamba(input_file_path, output_file_path, model):
     model_path = os.path.join('/', 'queue', 'models', model)
     classification = RNAsambaClassificationModel(input_file_path, [model_path], verbose=2)
     classification.write_classification_output(output_file_path)
+    os.remove(input_file_path)
