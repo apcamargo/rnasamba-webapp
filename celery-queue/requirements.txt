@@ -12,4 +12,4 @@ biopython==1.74
 numpy==1.16.4
 tensorflow==1.14.0
 keras==2.2.4
-rnasamba==0.1.6
+rnasamba==0.2.0
