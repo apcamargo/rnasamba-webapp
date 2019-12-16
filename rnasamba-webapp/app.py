@@ -26,7 +26,7 @@ app.config['SECRET_KEY'] = os.environ['FLASK_SECRET_KEY']
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        model = 'partial_length_weights.hdf5'
+        model = 'full_length_weights.hdf5'
         # Check input file extension
         input_file = request.files['file']
         if not allowed_file(input_file.filename):
