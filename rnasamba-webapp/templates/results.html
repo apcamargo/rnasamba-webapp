@@ -6,14 +6,24 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-9">
-                        <h5 class="card-title">View and download your results</h5>
+                      {% if data_size <= 10000 %}
+                      <h5 class="card-title">View and download your results</h5>
+                      {% else %}
+                      <h5 class="card-title">Download your results</h5>
+                      {% endif %}
                     </div>
                     <div class="col-3">
                         <a class="btn btn-primary btn-block" role="button"
                             href="{{ url_for('uploaded_file', output_file=output_file) }}">Download</a>
                     </div>
                 </div>
+                {% if data_size <= 10000 %}
                 <p class="card-text">{{ dataframe_html | safe }}</p>
+                {% else %}
+                <div class="alert alert-warning mt-2" role="alert">
+                  To view the results in your browser, upload a FASTA file containing at most 10,000 sequences.
+                </div>
+                {% endif %}
             </div>
         </div>
 
@@ -22,7 +32,7 @@
 
         <script>
           $.fn.DataTable.ext.pager.numbers_length = 5;
-          $(document).ready(function() {
+          $(document).ready(function () {
             $('#dataframe-id').DataTable({
               "order": [],
               "scrollX": true
