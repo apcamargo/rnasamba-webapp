@@ -1,6 +1,16 @@
 {% extends "layout.html" %}
 {% block content %}
 
+<!-- About card -->
+<div class="card col-12" style="margin-bottom:1rem">
+  <div class="card-body">
+    <h5 class="card-title">About</h5>
+    <p class="card-text">RNAsamba is a tool for computing the coding potential of RNA sequences using a neural network
+      classification model. It can be used to identify mRNAs and lncRNAs without relying on database searches.</p>
+  </div>
+</div>
+
+<!-- File selection + Button -->
 <form class="needs-validation" method=post action="{{ url_for('index') }}" enctype=multipart/form-data novalidate
   style="flex-grow: 100;">
   <div class="card col-12" style="margin-bottom:1rem;">
@@ -30,6 +40,7 @@
     </div>
   </div>
 </form>
+
 <!-- Installation card -->
 <div class="card col-12" style="margin-bottom:1rem">
   <div class="card-body">
@@ -40,17 +51,18 @@
       install and use RNAsamba.</p>
   </div>
 </div>
+
 <!-- Citation card -->
 <div class="card bg-light col-12" style="margin-bottom:1rem">
-    <div class="card-body">
-        <h5 class="card-title">Cite RNAsamba</h5>
-        <p class="card-text" style="margin: 0px;">"RNAsamba: neural network-based assessment of the protein-coding
-            potential of RNA sequences".</p>
-        <p class="card-text text-muted">Camargo, A. P., Sourkov, V., Pereira, G. A. G. & Carazzolle, M. F. &ndash;
-            <em>NAR Genomics and Bioinformatics</em> (2020).</p>
-        <a class="btn btn-outline-primary btn-sm mr-2" role="button"
-            href="https://academic.oup.com/nargab/article/2/1/lqz024/5701461/">Go to article</a>
-    </div>
+  <div class="card-body">
+    <h5 class="card-title">Cite RNAsamba</h5>
+    <p class="card-text" style="margin: 0px;">"RNAsamba: neural network-based assessment of the protein-coding
+      potential of RNA sequences".</p>
+    <p class="card-text text-muted">Camargo, A. P., Sourkov, V., Pereira, G. A. G. & Carazzolle, M. F. &ndash;
+      <em>NAR Genomics and Bioinformatics</em> (2020).</p>
+    <a class="btn btn-outline-primary btn-sm mr-2" role="button"
+      href="https://academic.oup.com/nargab/article/2/1/lqz024/5701461/">Go to article</a>
+  </div>
 </div>
 
 {% endblock content %}

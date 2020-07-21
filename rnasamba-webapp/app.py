@@ -17,7 +17,7 @@ from worker import celery
 
 
 # Define global variables
-TITLE = 'RNAsamba'
+TITLE = 'RNAsamba: coding potential calculator for transcript sequences'
 BASE_PATH = '/rnasamba-app'
 UPLOAD_FOLDER = os.path.join(BASE_PATH, 'uploads')
 ALLOWED_EXTENSIONS = ['fasta', 'fa', 'fna']
