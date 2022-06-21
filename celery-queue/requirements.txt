@@ -9,7 +9,7 @@ redis==2.10.6
 tornado==5.1.1
 vine==1.1.4
 biopython==1.74
-numpy==1.16.4
+numpy==1.22.0
 tensorflow==1.14.0
 keras==2.2.4
 rnasamba==0.2.4
