@@ -5,6 +5,7 @@ services:
     build:
       context: rnasamba-webapp
       dockerfile: Dockerfile
+      network: host
     environment:
       # Set the Flask secret key
       - FLASK_SECRET_KEY=super_secret_key
@@ -20,6 +21,7 @@ services:
     build:
       context: volume-cleanup
       dockerfile: Dockerfile
+      network: host
     volumes:
       - uploads-volume:/rnasamba-app/uploads
     restart: always
@@ -29,6 +31,7 @@ services:
     build:
       context: celery-queue
       dockerfile: Dockerfile
+      network: host
     environment:
       # Flower configuration
       - CELERY_BROKER_URL=redis://redis:6379/0
@@ -45,6 +48,7 @@ services:
     build:
       context: celery-queue
       dockerfile: Dockerfile
+      network: host
     volumes:
       - uploads-volume:/rnasamba-app/uploads
     restart: always
